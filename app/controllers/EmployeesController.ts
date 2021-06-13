@@ -4,7 +4,7 @@ import { getRepository } from 'typeorm'
 import { Employee } from '../typeorm/entities/Employee'
 
 export default class EmployeesController {
-    public async add(req: Request, res: Response) {
+    public add = async (req: Request, res: Response) => {
         const { login, name, positionId } = req.body
 
         const employeeRepository = getRepository(Employee)
@@ -43,7 +43,7 @@ export default class EmployeesController {
         }
     }
 
-     public async list(req: Request, res: Response) {
+     public list = async (req: Request, res: Response) => {
          const employeeRepository = getRepository(Employee)
          try {
              const employees = await employeeRepository.find()

@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { Request, Response, NextFunction } from 'express'
 import { google } from 'googleapis'
 
@@ -17,7 +18,7 @@ export default class GoogleSheetsController {
 
             const request = {
                 auth: this.auth,
-                spreadsheetId: '123FGju6CAmjGMzKrWt6lXyd1w2YYAosDiIyaBwauOrI',
+                spreadsheetId: process.env.gs_spreadsheet_id,
                 range: 'Лист1'
             }
 
@@ -41,7 +42,7 @@ export default class GoogleSheetsController {
 
             const request = {
                 auth: this.auth,
-                spreadsheetId: '123FGju6CAmjGMzKrWt6lXyd1w2YYAosDiIyaBwauOrI',
+                spreadsheetId: process.env.gs_spreadsheet_id,
                 range: 'Лист1!A:B',
                 valueInputOption: 'USER_ENTERED',
                 resource: {
