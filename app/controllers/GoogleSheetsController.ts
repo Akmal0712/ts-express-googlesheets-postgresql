@@ -4,6 +4,7 @@ import { google } from 'googleapis'
 
 export default class GoogleSheetsController {
     private readonly auth
+
     public constructor() {
         this.auth = new google.auth.GoogleAuth({
             keyFile: 'credential.json',
